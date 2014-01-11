@@ -19,7 +19,6 @@ public class SinglePlayerActivity extends Activity {
      */
     int turn;
     ArrayList<View> buttons;
-    String[] buttonTags;
     String winner;
     Button currentBtn ;
     Drawable backgroundPic;
@@ -39,28 +38,6 @@ public class SinglePlayerActivity extends Activity {
         buttons.add(findViewById(R.id.button7));
         buttons.add(findViewById(R.id.button8));
         buttons.add(findViewById(R.id.button9));
-        //initialize for saving state
-        buttonTags = new String[]{"empty", "empty", "empty",
-                "empty", "empty", "empty",
-                "empty", "empty", "empty"};
-
-
-        if (savedInstanceState != null) {
-            turn = savedInstanceState.getInt("turn");
-            buttonTags = savedInstanceState.getStringArray("buttonTags");
-            configureDisplay();
-        }
-    }
-
-
-
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt("turn", turn);
-        outState.putStringArray("buttonTags", buttonTags);
-
 
     }
 
@@ -99,47 +76,8 @@ public class SinglePlayerActivity extends Activity {
         else
             currentBtn.setBackground(backgroundPic);
 
-        updateOnSavedStateResources(tag);
     }
 
-    private void configureDisplay() {
-        for( int i = 0; i<9; i++){
-            if (buttonTags[i] != "empty")
-                markButton(buttonTags[i]);
-        }
-
-    }
-    private void updateOnSavedStateResources(String tag) {
-        switch (currentBtn.getId()) {
-            case R.id.button1:
-                buttonTags[0] = tag;
-                break;
-            case R.id.button2:
-                buttonTags[1] = tag;
-                break;
-            case R.id.button3:
-                buttonTags[2] = tag;
-                break;
-            case R.id.button4:
-                buttonTags[3] = tag;
-                break;
-            case R.id.button5:
-                buttonTags[4] = tag;
-                break;
-            case R.id.button6:
-                buttonTags[5] = tag;
-                break;
-            case R.id.button7:
-                buttonTags[6] = tag;
-                break;
-            case R.id.button8:
-                buttonTags[7] = tag;
-                break;
-            case R.id.button9:
-                buttonTags[8] = tag;
-                break;
-        }
-    }
 
     private void pcPlay() {
 
