@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:rowCount="3"
+              android:columnCount="3"
+        >
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white"
+            android:layout_margin="5dp"
+            android:onClick="newTurn"
+            android:id="@+id/button1"/>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white"
+            android:layout_margin="5dp"
+            android:onClick="newTurn"
+            android:id="@+id/button2"/>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white"
+            android:layout_margin="5dp"
+            android:onClick="newTurn"
+            android:id="@+id/button3"/>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white"
+            android:layout_margin="5dp"
+            android:onClick="newTurn"
+            android:id="@+id/button4"/>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white"
+            android:layout_margin="5dp"
+            android:onClick="newTurn"
+            android:id="@+id/button5"/>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white"
+            android:layout_margin="5dp"
+            android:onClick="newTurn"
+            android:id="@+id/button6"/>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white"
+            android:layout_margin="5dp"
+            android:onClick="newTurn"
+            android:id="@+id/button7"/>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white"
+            android:layout_margin="5dp"
+            android:onClick="newTurn"
+            android:id="@+id/button8"/>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white"
+            android:layout_margin="5dp"
+            android:onClick="newTurn"
+            android:id="@+id/button9"/>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="3"
+            android:layout_gravity="center"
+            android:text="New Game"
+            android:onClick="newGame"
+            android:id="@+id/restart"/>
+
+
+
+</GridLayout>
