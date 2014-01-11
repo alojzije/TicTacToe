@@ -5,7 +5,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              app:rowCount="3"
+              app:rowCount="4"
               app:columnCount="3">
 
     <Button android:layout_width="wrap_content"
