@@ -6,16 +6,21 @@
     <uses-sdk android:minSdkVersion="7"
             android:targetSdkVersion="18"/>
     <application android:label="@string/app_name" android:icon="@drawable/ic_launcher">
-        <activity android:name=".MyActivity"
+        <activity android:name="MyActivity"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="MultiPlayerActivity"
-                  android:label="@string/app_name"/>
 
+        <activity android:name="MultiPlayerActivity"
+                  android:label="@string/multiplayer">
+            <intent-filter>
+                <action android:name="com.example.TicTacToe.MultiPlayerActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+       </activity>
 
     </application>
 </manifest>

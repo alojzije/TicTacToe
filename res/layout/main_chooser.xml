@@ -19,7 +19,7 @@
 
     <Button android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/signle_player"
+            android:text="@string/single_player"
             android:layout_marginBottom="7dp"
             android:onClick="invokeSinglePlayer"/>
 
