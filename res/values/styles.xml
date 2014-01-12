@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ActionBar" parent="Theme.AppCompat.Light">
+        <item name="android:icon">@drawable/icon_transparent</item>
+        <item name="android:typeface">monospace</item>
+
+    </style>
+</resources>

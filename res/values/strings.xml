@@ -4,4 +4,5 @@
     <string name="game_title">TicTacToe</string>
     <string name="single_player">Single Player</string>
     <string name="multiplayer">Multiplayer</string>
+    <string name="new_game">New Game</string>
 </resources>
