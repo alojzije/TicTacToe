@@ -23,26 +23,29 @@ public class SinglePlayerActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_play);
 
-        TicTacToe.clearButtons();
-        TicTacToe.addButton(this,R.id.button1);
-        TicTacToe.addButton(this,R.id.button2);
-        TicTacToe.addButton(this,R.id.button3);
-        TicTacToe.addButton(this,R.id.button4);
-        TicTacToe.addButton(this,R.id.button5);
-        TicTacToe.addButton(this,R.id.button6);
-        TicTacToe.addButton(this,R.id.button7);
-        TicTacToe.addButton(this,R.id.button8);
-        TicTacToe.addButton(this,R.id.button9);
+        TicTacToe.setActivity(this);
         TicTacToe.setNameforPlayerX("Computer");
         TicTacToe.setNameforPlayerO("You");
         TicTacToe.setTurn(0);
+
+
+        TicTacToe.clearButtons();
+        TicTacToe.addButton(R.id.button1);
+        TicTacToe.addButton(R.id.button2);
+        TicTacToe.addButton(R.id.button3);
+        TicTacToe.addButton(R.id.button4);
+        TicTacToe.addButton(R.id.button5);
+        TicTacToe.addButton(R.id.button6);
+        TicTacToe.addButton(R.id.button7);
+        TicTacToe.addButton(R.id.button8);
+        TicTacToe.addButton(R.id.button9);
 
 
     }
 
     public void newTurn(View view) {
         // mark Button for player playerO;
-        TicTacToe.playO(this, (Button) view);
+        TicTacToe.playO((Button) view);
 
         //check if player_o won the game or if it's a DRAW;
         if (TicTacToe.isGameOver()){
@@ -50,12 +53,13 @@ public class SinglePlayerActivity extends ActionBarActivity {
 
         //if player_o hasn't won, it's computer's turn
         }else {
-            TicTacToe.playPC(this, (Button) view);
+            TicTacToe.playPC((Button) view);
+
+            //check if player_x won the game
+            //check if player_o won the game;
+            if (TicTacToe.isGameOver())
+                endGame(TicTacToe.winner);
         }
-        //check if player_x won the game
-        //check if player_o won the game;
-        if (TicTacToe.isGameOver())
-            endGame(TicTacToe.winner);
 
     }
 
@@ -69,7 +73,7 @@ public class SinglePlayerActivity extends ActionBarActivity {
         else if (winner == TicTacToe.playerX)
             toast = Toast.makeText(getApplicationContext(), "Computer won \n Up for a rematch? ", Toast.LENGTH_LONG);
         else
-            toast = Toast.makeText(getApplicationContext(), " Draw \n ", Toast.LENGTH_LONG);
+            toast = Toast.makeText(getApplicationContext(), " Draw ", Toast.LENGTH_LONG);
         toast.setGravity(Gravity.CENTER,0,0);
         toast.show();
         //disable all the buttons

@@ -3,6 +3,7 @@ package com.example.TicTacToe;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class TicTacToe {
     protected static Button clickedButton;
     //android.View arrayList
     protected static ArrayList<Button> buttons;
+    protected static Activity activity;
 
     //constants player playerX, player 0
 
@@ -34,6 +36,10 @@ public class TicTacToe {
         winner = NOBODY;
 
     }
+
+    public static void setActivity(Activity activity) {
+        TicTacToe.activity = activity;
+    }
     public static void setNameforPlayerX(String X_) {
         playerX = X_;
     }
@@ -43,11 +49,11 @@ public class TicTacToe {
     }
 
 
-    protected static void addButton (Activity activity, int buttonId) {
+    protected static void addButton ( int buttonId) {
         buttons.add((Button) activity.findViewById(buttonId));
     }
 
-    private static void markButton(Activity activity, Button clickedButton_, String tag) {
+    private static void markButton( Button clickedButton_, String tag) {
         turn ++;
         winner = tag;
         clickedButton = clickedButton_;
@@ -56,33 +62,44 @@ public class TicTacToe {
         clickedButton.setEnabled(false);
 
         int backgroundRes = tag == playerO ? R.drawable.player_o : R.drawable.player_x;
+        setBackground(clickedButton, backgroundRes);
+
+    }
+
+    @SuppressWarnings("deprecation")
+    private static void setBackground(View view, int backgroundRes) {
         Drawable backgroundPic = activity.getResources().getDrawable(backgroundRes);
 
         //set background pic
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)
-            clickedButton.setBackgroundDrawable(backgroundPic);
+            view.setBackgroundDrawable(backgroundPic);
         else
-            clickedButton.setBackground(backgroundPic);
-
+            view.setBackground(backgroundPic);
     }
 
     protected static Boolean isGameOver() {
         boolean isWon;
         //the logic
-
+        View grid = activity.findViewById(R.id.grid);
         //check horizontal
         if (buttons.get(0).getTag() != null &&
                 buttons.get(0).getTag() == buttons.get(1).getTag() &&
                 buttons.get(1).getTag() == buttons.get(2).getTag()) {
             isWon = true;
+            setBackground(grid, R.drawable.grid_won123);
+
         } else if (buttons.get(3).getTag() != null &&
                 buttons.get(3).getTag() == buttons.get(4).getTag() &&
                 buttons.get(4).getTag() == buttons.get(5).getTag()) {
             isWon = true;
+            setBackground(grid, R.drawable.grid_won456);
+
         } else if (buttons.get(6).getTag() != null &&
                 buttons.get(6).getTag() == buttons.get(7).getTag() &&
                 buttons.get(7).getTag() == buttons.get(8).getTag()) {
             isWon = true;
+            setBackground(grid, R.drawable.grid_won789);
+
         }
 
         //check vertical
@@ -90,14 +107,20 @@ public class TicTacToe {
                 buttons.get(0).getTag() == buttons.get(3).getTag() &&
                 buttons.get(3).getTag() == buttons.get(6).getTag()) {
             isWon = true;
+            setBackground(grid, R.drawable.grid_won147);
+
         } else if (buttons.get(1).getTag() != null &&
                 buttons.get(1).getTag() == buttons.get(4).getTag() &&
                 buttons.get(4).getTag() == buttons.get(7).getTag()) {
             isWon = true;
+            setBackground(grid, R.drawable.grid_won258);
+
         } else if (buttons.get(2).getTag() != null &&
                 buttons.get(2).getTag() == buttons.get(5).getTag() &&
                 buttons.get(5).getTag() == buttons.get(8).getTag()) {
             isWon = true;
+            setBackground(grid, R.drawable.grid_won369);
+
         }
 
         //check diagonal
@@ -105,10 +128,13 @@ public class TicTacToe {
                 buttons.get(0).getTag() == buttons.get(4).getTag() &&
                 buttons.get(4).getTag() == buttons.get(8).getTag()) {
             isWon = true;
+            setBackground(grid, R.drawable.grid_won159);
+
         } else if (buttons.get(2).getTag() != null &&
                 buttons.get(2).getTag() == buttons.get(4).getTag() &&
                 buttons.get(4).getTag() == buttons.get(6).getTag()) {
             isWon = true;
+            setBackground(grid, R.drawable.grid_won357);
 
         } else if (turn == 9) {
             isWon = true;
@@ -127,22 +153,22 @@ public class TicTacToe {
 
     }
 
-    public static void playO(Activity activity, Button clickedButton_) {
+    public static void playO(Button clickedButton_) {
 
-        markButton(activity, (Button)clickedButton_, playerO);
+        markButton((Button)clickedButton_, playerO);
     }
 
-    public static void playX(Activity activity, Button clickedButton_) {
+    public static void playX( Button clickedButton_) {
 
-        markButton(activity, (Button)clickedButton_, playerX);
+        markButton((Button)clickedButton_, playerX);
     }
 
-    public static void playPC(Activity activity, Button view) {
+    public static void playPC( Button view) {
 
         int nextMove = findTwoConsecutive(playerX);
         if (nextMove != -1) {
             clickedButton = (Button) buttons.get(nextMove);
-            markButton(activity, (Button)clickedButton, playerX);
+            markButton((Button)clickedButton, playerX);
             return;
         }
 
@@ -150,7 +176,7 @@ public class TicTacToe {
         nextMove = findTwoConsecutive(playerO);
         if (nextMove != -1) {
             clickedButton = (Button) buttons.get(nextMove);
-            markButton(activity, (Button)clickedButton, playerX);
+            markButton((Button)clickedButton, playerX);
             return;
         }
 
@@ -158,7 +184,7 @@ public class TicTacToe {
         nextMove = pcChooseSpace();
         if (nextMove != -1) {
             clickedButton = (Button) buttons.get(nextMove);
-            markButton(activity, (Button)clickedButton, playerX);
+            markButton( (Button)clickedButton, playerX);
             return;
         }
     }

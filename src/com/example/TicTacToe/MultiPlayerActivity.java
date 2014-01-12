@@ -20,19 +20,22 @@ public class MultiPlayerActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_play);
 
-        TicTacToe.clearButtons();
-        TicTacToe.addButton(this,R.id.button1);
-        TicTacToe.addButton(this,R.id.button2);
-        TicTacToe.addButton(this,R.id.button3);
-        TicTacToe.addButton(this,R.id.button4);
-        TicTacToe.addButton(this,R.id.button5);
-        TicTacToe.addButton(this,R.id.button6);
-        TicTacToe.addButton(this,R.id.button7);
-        TicTacToe.addButton(this,R.id.button8);
-        TicTacToe.addButton(this,R.id.button9);
+        TicTacToe.setActivity(this);
         TicTacToe.setNameforPlayerX("X");
         TicTacToe.setNameforPlayerO("O");
         TicTacToe.setTurn(0);
+
+        TicTacToe.clearButtons();
+        TicTacToe.addButton(R.id.button1);
+        TicTacToe.addButton(R.id.button2);
+        TicTacToe.addButton(R.id.button3);
+        TicTacToe.addButton(R.id.button4);
+        TicTacToe.addButton(R.id.button5);
+        TicTacToe.addButton(R.id.button6);
+        TicTacToe.addButton(R.id.button7);
+        TicTacToe.addButton(R.id.button8);
+        TicTacToe.addButton(R.id.button9);
+
 
 
     }
@@ -40,9 +43,9 @@ public class MultiPlayerActivity extends ActionBarActivity {
     public void newTurn(View view) {
         // mark button either for playerO or for playerX
         if (TicTacToe.turn % 2 == 0)
-            TicTacToe.playO(this, (Button) view);
+            TicTacToe.playO((Button) view);
         else
-            TicTacToe.playX(this, (Button) view);
+            TicTacToe.playX((Button) view);
 
         //check if player_o won the game or if it's a DRAW;
         if (TicTacToe.isGameOver())
@@ -56,7 +59,7 @@ public class MultiPlayerActivity extends ActionBarActivity {
         Toast toast;
         //print the winning message
         if (winner == TicTacToe.DRAW)
-            toast = Toast.makeText(getApplicationContext(), " Draw \n ", Toast.LENGTH_LONG);
+            toast = Toast.makeText(getApplicationContext(), " Draw ", Toast.LENGTH_LONG);
         else
             toast = Toast.makeText(getApplicationContext(), winner + " won \n Up for a rematch? ", Toast.LENGTH_LONG);
 
