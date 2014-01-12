@@ -17,6 +17,8 @@ public class MyActivity extends Activity {
     }
 
     public void invokeSinglePlayer(View view) {
+        Intent intent = new Intent("com.example.TicTacToe.SinglePlayerActivity");
+        startActivity(intent);
     }
 
     public void invokeMultiPlayer(View view) {

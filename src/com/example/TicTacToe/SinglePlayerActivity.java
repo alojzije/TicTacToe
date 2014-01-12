@@ -20,7 +20,7 @@ public class SinglePlayerActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.game_play);
 
         TicTacToe.clearButtons();
         TicTacToe.addButton(this,R.id.button1);
