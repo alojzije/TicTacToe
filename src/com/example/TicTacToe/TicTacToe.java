@@ -3,7 +3,6 @@ package com.example.TicTacToe;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
@@ -56,7 +55,7 @@ public class TicTacToe {
         clickedButton.setTag(tag);
         clickedButton.setEnabled(false);
 
-        int backgroundRes = tag == playerO ? R.drawable.user: R.drawable.pc;
+        int backgroundRes = tag == playerO ? R.drawable.player_o : R.drawable.player_x;
         Drawable backgroundPic = activity.getResources().getDrawable(backgroundRes);
 
         //set background pic
@@ -147,7 +146,7 @@ public class TicTacToe {
             return;
         }
 
-        // if pc can't win, check if user can and try to stop it
+        // if player_x can't win, check if player_o can and try to stop it
         nextMove = findTwoConsecutive(playerO);
         if (nextMove != -1) {
             clickedButton = (Button) buttons.get(nextMove);
@@ -155,7 +154,7 @@ public class TicTacToe {
             return;
         }
 
-        //otherwise make pc play something semi-intelligent
+        //otherwise make player_x play something semi-intelligent
         nextMove = pcChooseSpace();
         if (nextMove != -1) {
             clickedButton = (Button) buttons.get(nextMove);
@@ -167,7 +166,7 @@ public class TicTacToe {
     private static int pcChooseSpace() {
         int nextMove = -1;
 
-        //check for empty corners whose one opposite and one neighbour corner are both marked by pc
+        //check for empty corners whose one opposite and one neighbour corner are both marked by player_x
         if (buttons.get(0).getTag() == null
                 && buttons.get(8).getTag() == playerX
                 && (buttons.get(2).getTag() == playerX || buttons.get(2).getTag() == playerX)) {
@@ -188,7 +187,7 @@ public class TicTacToe {
             nextMove = 6;
         }
 
-        //check for empty corners whose opposite corner are marked by pc
+        //check for empty corners whose opposite corner are marked by player_x
         else if (buttons.get(0).getTag() == null && buttons.get(8).getTag() == playerX) {
             nextMove = 0;
         } else if (buttons.get(8).getTag() == null && buttons.get(0).getTag() == playerX) {

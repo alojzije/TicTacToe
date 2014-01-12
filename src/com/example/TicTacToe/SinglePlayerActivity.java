@@ -43,16 +43,16 @@ public class SinglePlayerActivity extends Activity {
         // mark Button for player playerO;
         TicTacToe.playO(this, (Button) view);
 
-        //check if user won the game or if it's a DRAW;
+        //check if player_o won the game or if it's a DRAW;
         if (TicTacToe.isGameOver()){
             endGame(TicTacToe.winner);
 
-        //if user hasn't won, it's computer's turn
+        //if player_o hasn't won, it's computer's turn
         }else {
             TicTacToe.playPC(this, (Button) view);
         }
-        //check if pc won the game
-        //check if user won the game;
+        //check if player_x won the game
+        //check if player_o won the game;
         if (TicTacToe.isGameOver())
             endGame(TicTacToe.winner);
 
