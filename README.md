@@ -1,4 +1,6 @@
 TicTacToe
 =========
 
-very simple TicTacToe game for android
+a very simple TicTacToe game for android
+
+*has singleplayer and multiplayer option
