@@ -3,9 +3,10 @@ package com.example.TicTacToe;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 
-public class MyActivity extends Activity {
+public class MyActivity extends ActionBarActivity {
     /**
      * Called when the activity is first created.
      */
