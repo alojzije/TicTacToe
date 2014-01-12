@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.GridLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:rowCount="3"
-              android:columnCount="3"
-        >
+              app:rowCount="4"
+              app:columnCount="3">
+
     <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/white"
@@ -66,18 +67,19 @@
     <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/white"
+            app:layout_gravity="center"
             android:layout_margin="5dp"
             android:onClick="newTurn"
             android:id="@+id/button9"/>
 
     <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnSpan="3"
-            android:layout_gravity="center"
+            app:layout_columnSpan="3"
+            app:layout_gravity="center"
             android:text="New Game"
             android:onClick="newGame"
             android:id="@+id/restart"/>
 
 
 
-</GridLayout>
+</android.support.v7.widget.GridLayout>

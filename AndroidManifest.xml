@@ -3,15 +3,49 @@
           package="com.example.TicTacToe"
           android:versionCode="1"
           android:versionName="1.0">
+
     <uses-sdk android:minSdkVersion="7"
             android:targetSdkVersion="18"/>
-    <application android:label="@string/app_name" android:icon="@drawable/ic_launcher">
+
+    <application android:label="@string/app_name" android:icon="@drawable/ic_launcher"
+                 android:theme="@style/Theme.AppCompat">
+
         <activity android:name="MyActivity"
-                  android:label="@string/app_name">
+                  android:label="@string/app_name"
+                  android:screenOrientation="nosensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+
+        <activity android:name="MultiPlayerActivity"
+                  android:label="@string/multiplayer"
+                  android:parentActivityName="com.example.TicTacToe.MyActivity"
+                  android:screenOrientation="nosensor">
+            <intent-filter>
+                <action android:name="com.example.TicTacToe.MultiPlayerActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.TicTacToe.MyActivity"/>
+
+       </activity>
+
+        <activity android:name="SinglePlayerActivity"
+                  android:label="@string/single_player"
+                  android:parentActivityName="com.example.TicTacToe.MyActivity"
+                  android:screenOrientation="nosensor">
+            <intent-filter>
+                <action android:name="com.example.TicTacToe.SinglePlayerActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.example.TicTacToe.MyActivity"/>
+        </activity>
+
     </application>
 </manifest>

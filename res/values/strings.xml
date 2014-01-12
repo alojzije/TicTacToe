@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TicTacToe</string>
+    <string name="game_title">TicTacToe</string>
+    <string name="single_player">Single Player</string>
+    <string name="multiplayer">Multiplayer</string>
 </resources>
